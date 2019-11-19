@@ -1,0 +1,25 @@
+h1{
+    color: #fff;
+}
+body {
+  background: rebeccapurple;
+}
+::-webkit-input-placeholder {
+  color: aqua;
+}
+::-moz-placeholder {
+  color: aqua;
+}
+:-ms-input-placeholder {
+  color: aqua;
+}
+::-ms-input-placeholder {
+  color: aqua;
+}
+::placeholder {
+  color: aqua;
+}
+div {
+  display: flex;
+}
+

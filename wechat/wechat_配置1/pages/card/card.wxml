@@ -1,0 +1,23 @@
+<view>
+  <block wx:for="{{cardList}}" wx:key="{{this}}" wx:for-index="index">
+    <view class='order_info'>
+      <view class=''>
+        <image src='{{item.img}}'/>
+        <view class='inline_box menu_info'>
+          <view>{{item.name}}</view>
+          <view>单价: <text class='price'>{{item.price}}￥</text></view>
+        </view>
+        <view class='inline_box'>
+          <view>小计： <text class='subtotal'>{{item.subtotal}}￥</text></view>
+          <button type='primary' data-index="{{index}}" bindtap='reduce' >-</button>
+          <input value='{{item.num}}' data-index="{{index}}" bindblur="bindBlur"/>
+          <button type='primary' data-index="{{index}}" bindtap='add'>+</button>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='sumite_box'>
+    <view >合计：<text class='count'>{{total}}￥</text></view>
+    <button type='warn' bindtap='jumpOrder'>提交订单</button>
+  </view>
+</view>

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>demo01</title>
+  <style>
+	#myDiv{
+		width: 200px;
+		height: 200px;
+		line-height: 200px;
+		text-align: center;
+		border:1px solid red;
+		margin:20px 0;
+		position: fixed;
+		transition: all 500ms linear;
+	}
+  </style>
+ </head>
+ <body>
+	<button id="ltMove">左移动</button>
+	<input type="number" id="num">
+	<button id="rtMove">右移动</button>
+	<div id="myDiv">this is div</div>
+	<button id="back">后退</button>
+	<button id="go">前进</button>
+	<script>
+	var input = document.getElementById("num")
+	var dom = document.getElementById("myDiv")
+	var commed=(function(){
+		var input = document.getElementById("num")
+		var dom = document.getElementById("myDiv")
+		function changeDiv(dataob){
+			if(!dataob instanceof DataState){
+				throw new Error("必须接受一个DataState实例")
+			}
+			var _data = dataob.getDate()
+			dom.style={}
+			dom.style[_data.type] = _data.num
+		};
+	
+		function DataState(){
+			this.nowState = 0
+			this.stateArr=[{type: 'left', num: 0}]
+		}
+	
+		DataState.prototype.getDate=function(){
+			return this.stateArr[this.nowState]
+		}
+		DataState.prototype.pushState=function(state){
+			if(this.nowState<this.stateArr.length-1){
+				this.stateArr.slice(this.nowState,this.stateArr.length-1)
+			}
+			this.stateArr.push(state)
+			this.nowState = this.stateArr.length-1
+		}
+		DataState.prototype.getBack=function(){
+			if(this.nowState>0){
+				this.nowState--	
+			}
+		}
+		DataState.prototype.getGo=function(){
+			if(this.nowState<this.stateArr.length-1){
+				this.nowState++
+			}
+		}
+	
+		var dataob = new DataState
+		return {
+			excute:function(commeder){
+				var commederArr = ["go","back"]
+				if(typeof commeder==="object" ){
+					dataob.pushState(commeder)
+					changeDiv(dataob)
+				}else{
+					var has = false
+					for(var i=0,len=commederArr.length;i<len;i++){
+						if(commeder===commederArr[i]){
+							has = true
+							var state = {
+								go:function(){
+									dataob.getGo()
+									changeDiv(dataob)
+								},
+								back:function(){
+									dataob.getBack()
+									changeDiv(dataob)
+								}
+							}
+							state[commeder]()
+						}
+					}
+					if(!has){
+						throw new Error("命令部队")
+					}
+				}
+			}
+		}
+	})()
+
+	document.getElementById("ltMove").onclick=function(){
+		commed.excute({type:'left',num: input.value+'px'})
+	}
+	document.getElementById("rtMove").onclick=function(){
+		commed.excute({type:'right',num: input.value+'px'})
+	}
+	document.getElementById("back").onclick=function(){
+		commed.excute("back") 
+	}
+	document.getElementById("go").onclick=function(){
+		commed.excute("go")
+	}
+		
+	</script>
+	<!-- <script>
+		var input = document.getElementById("num")
+		var dom = document.getElementById("myDiv")
+		function changeDiv(dataob){
+			if(!dataob instanceof DataState){
+				throw new Error("必须接受一个DataState实例")
+			}
+			var _data = dataob.getDate()
+			dom.style={}
+			dom.style[_data.type] = _data.num
+		};
+	
+		function DataState(){
+			this.nowState = 0
+			this.stateArr=[{type: 'left', num: 0}]
+		}
+	
+		DataState.prototype.getDate=function(){
+			return this.stateArr[this.nowState]
+		}
+		DataState.prototype.pushState=function(state){
+			if(this.nowState<this.stateArr.length-1){
+				this.stateArr.slice(this.nowState,this.stateArr.length-1)
+			}
+			this.stateArr.push(state)
+			this.nowState = this.stateArr.length-1
+		}
+		DataState.prototype.getBack=function(){
+			if(this.nowState>0){
+				this.nowState--	
+			}
+		}
+		DataState.prototype.getGo=function(){
+			if(this.nowState<this.stateArr.length-1){
+				this.nowState++
+			}
+		}
+	
+		var dataob = new DataState
+	
+		document.getElementById("ltMove").onclick=function(){
+			dataob.pushState({type:'left',num: input.value+'px'})
+			changeDiv(dataob)
+		}
+		document.getElementById("rtMove").onclick=function(){
+			dataob.pushState({type:'right',num: input.value+'px'})
+			changeDiv(dataob)
+		}
+		document.getElementById("back").onclick=function(){
+			dataob.getBack() 
+			changeDiv(dataob)
+		}
+		document.getElementById("go").onclick=function(){
+			dataob.getGo()
+			changeDiv(dataob)
+		}
+	</script> -->
+ </body>
+</html>

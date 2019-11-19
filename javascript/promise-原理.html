@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>promoise原理</title>
+</head>
+
+<body>
+   <script>
+      //then注册一个任务回调 resolve触发 执行这个then注册函数
+      function isFunction(fn) {
+         if (typeof fn === 'function') {
+            return true
+         } else {
+            return false
+         }
+      }
+      Function.prototype.bind = function (content) {
+         var self = this
+         return function () {
+            // call明确知道参数的数量
+            // apply参数不定的情况下
+            self.apply(content, arguments)
+         }
+      }
+
+      function myPromise(handle) {
+         this.status = "pending"
+         this.val = undefined
+         this.resolveArr = []
+         this.rejectArr = []
+         this.resolve = function (value) {
+            // 判断状态是不是pending，不是=》return
+            if (this.status !== 'pending') return
+            this.status = 'resolve'
+            this.val = value
+            var cb
+            setTimeout(() => {
+               //resolveArr.shift() 取出数组的第一个
+               while (cb = this.resolveArr.shift()) {
+                  console.log(cb)
+                  cb()
+               }
+            })
+         }
+         this.reject = function (err) {
+            if (this.status !== 'pending') return
+            this.status = 'reject'
+            this.val = err
+         }
+         try {
+            handle(this.resolve.bind(this), this.reject.bind(this))
+         } catch (err) {
+            throw err
+         }
+      }
+      myPromise.prototype.then = function (suc, err) {
+         var val = this.val
+         var status = this.status
+         console.log(status)
+         return new myPromise((resolve, reject) => {
+            var _fn = undefined
+            var _handle = undefined
+
+            var run = function () {
+               try {
+                  console.log(_fn)
+                  if (!isFunction(suc)) {
+                     _fn(suc)
+                  } else {
+                     let res = _handle(val)
+                     resolve(res)
+                  }
+               } catch (err) {
+                  reject(err)
+               }
+            }
+            switch (status) {
+               case 'pending':
+                  this.resolveArr.push(suc)
+                  this.rejectArr.push(suc)
+                  break;
+               case 'resolve':
+                  _fn = resolve
+                  _handle = suc
+                  run();
+                  break
+               case 'reject':
+                  _fn = reject
+                  _handle = err
+                  run();
+                  break
+            }
+         })
+      }
+
+      new myPromise((resolve, reject) => {
+         resolve(20)
+      }).then('qeqwe').then(res => {
+         console.log(res)
+      })
+
+   </script>
+</body>
+
+</html>

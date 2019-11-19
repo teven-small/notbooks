@@ -1,0 +1,6 @@
+export { default as Home } from './Home'
+export { default as User } from './User'
+export { default as Artical } from './Artical'
+export { default as ArticalDetail } from './Artical/ArticalDetail'
+export { default as NotFound } from './NotFound'
+export { default as Button } from './Button'

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>js内存管理机制</title>
+   <style>
+      .wrap {
+         width: 400px;
+         height: 200px;
+         line-height: 200px;
+         text-align: center;
+         background-color: black;
+         color: #fff;
+         font-size: 26px;
+         font-weight: bold;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="wrap" id="contrainer">0</div>
+   <script>
+      var count = 1;
+      var container = document.getElementById('contrainer')
+      function getUserAction() {
+         this.innerHTML = count++;
+      }
+
+      container.onmousemove = throttle(getUserAction, 2000);
+      //节流
+      function throttle(fn, wait) {
+         var pre = 0;   //参照物
+         return function () {
+            var now = +new Date();
+            var self = this;
+            if (now - pre > wait) {
+               fn.apply(self);
+               pre = now;
+            }
+         }
+      }
+
+      //防抖
+      // function dbounse(fn, time, flag) {
+      //    var timeout;
+      //    return function () {
+      //       var self = this;
+      //       clearTimeout(timeout)
+
+      //       if (flag) {
+      //          //鼠标第一次进入timeout
+      //          var callNow = !timeout;
+
+      //          timeout = setTimeout(function () {
+      //             timeout = null;
+      //          }, time)
+
+      //          if (callNow) {
+      //             fn.apply(self);
+      //             flag = false;
+      //          }
+      //       } else {
+      //          timeout = setTimeout(function () {
+      //             fn.apply(self);
+      //          }, time)
+      //       }
+      //    }
+      // }
+
+   </script>
+</body>
+
+</html>

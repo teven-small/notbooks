@@ -1,0 +1,33 @@
+body{
+   background-image: url(/static/images/test1.jpg);
+   background-repeat: no-repeat;
+}
+::-webkit-input-placeholder{
+   color: antiquewhite;
+}
+:-moz-placeholder{
+   color: antiquewhite;
+}
+::-moz-placeholder{
+   color: antiquewhite;
+}
+:-ms-input-placeholder{
+   color: antiquewhite;
+}
+::-ms-input-placeholder{
+   color: antiquewhite;
+}
+::placeholder{
+   color: antiquewhite;
+}
+box{
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -moz-box;
+   display: -ms-flexbox;
+   display: flex;   
+}
+h1 {
+  color: beige;
+}
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title></title>
+</head>
+
+<body>
+   <script>
+      // Promise的特点：
+      //1.promise的状态一旦改变就无法更改
+      //2.promise的then方法参数期望是函数，传入非函数测绘发生值穿透
+      //3。promise的回调函数式同步的，而then的回调是异步
+      //4.链式条用then(多个then)，上一个then的返回值是下一个then接受到的参数，如
+      // 过返回错误，返回一个状态为reject的promise
+      //5.then的回调里return一个promise会进入等待状态，知道return的promise改变
+      /*new Promise(function (resolve, reject) {
+         resolve(1)
+      })
+         .then((res) => {
+            console.log(res)
+            // throw new Error('this s error')
+
+            return new Promise(function (resolve, reject) {
+               setTimeout(() => {
+                  reject(5)
+               }, 3000)
+            })
+         })
+         .then((res) => {
+            console.log("resolve" + res)
+         })
+         .catch(err => {
+            console.log("reject" + err)
+         })*/
+
+
+      setTimeout(function () {
+         console.log('set1')
+         var p2 = new Promise(function (resolve, reject) {
+            resolve(5)
+            console.log('Promise2')
+         })
+         p2.then((res) => {
+            console.log('then2')
+         })
+      })
+
+      var p1 = new Promise(function (resolve, reject) {
+         console.log('Promise1')
+         resolve(2)
+      })
+      setTimeout(function () {
+         console.log('set2')
+      })
+      p1.then(() => {
+         console.log('then1')
+      })
+      console.log('p2')
+   </script>
+</body>
+
+</html>

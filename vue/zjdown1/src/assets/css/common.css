@@ -1,0 +1,775 @@
+/* 首页样式 */
+/*
+  头部样式
+*/
+.top_div{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+}
+.top_div .main{
+    position: relative;
+}
+.top_div a{
+    color: black;
+    margin-right: 10px;
+}
+.top_div .lt{
+    position: relative;
+}
+marquee{
+    position: absolute;
+    top: 0;
+    left: 56px;
+    width: 960px;
+}
+/*
+  logo、搜索样式
+*/
+.dc_head_search{
+    padding: 10px 0;
+    background: #fff;
+}
+.logo_img{
+    margin-right: 10px;
+    height: 50px;
+    width: 50px;
+    background: #2D50A1;
+    display: inline-block;
+    border-radius: 6px;
+}
+.dc_head_search a{
+    color: #CECECE;
+}
+.dc_head_search .rt{
+    width: 350px;
+}
+.dc_head_search input{
+    padding-left: 10px;
+    position: relative;
+    right: -3px;
+    width: 82%;
+    height: 32px;
+    border: 1px solid #2D50A1;
+    border-radius: 6px 0 0 6px;
+    outline: none;
+    vertical-align: top;
+    border-right: none;
+}
+.search_btn{
+    display: inline-block;
+    width: 50px;
+    height: 32px;
+    line-height: 32px;
+    color: #fff;
+    background: #2D50A1;
+    text-align: center;
+    letter-spacing: 5px;
+    border-radius: 0 6px 6px 0;
+}
+.logo_title, .logo_title .logo_img{
+    display: inline-block;
+    vertical-align: top;
+}
+.logo_title div:first-child{
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing:5px;
+}
+.logo_title div{
+    color: #2D50A1;
+}
+.link_box{
+    padding-left: 4px;
+}
+
+/* 导航栏 */
+.nav_box{
+    width: 100%;
+    background: #2D50A1;
+}
+.nav_box ul{
+    overflow: hidden;
+}
+.nav_box ul li{
+    width: 120px;
+    height: 38px;
+    line-height: 38px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+.nav_box ul li a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+.nav_box ul li.active{
+    position: relative;
+    background: #0B2766;
+}
+.nav_box ul li.active div{
+    position: absolute;
+    left: 46%;
+    bottom: 0px;
+    color: #CCC129;
+    width: 0;
+    height: 0;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent #CCC129 transparent;
+}
+.main .container{
+    height: 100%;
+}
+
+/* 首页软件下载区域 */
+.software_list{
+    width: 398px;
+    padding: 0 20px;
+}
+.one{
+    background: url(../images/图层778.png) no-repeat -2px 50%;
+    border-radius: 6px;
+}
+.two{
+    background: url(../images/椭圆1拷贝.png) no-repeat -2px 50%;
+    border-radius: 6px;
+}
+.three{
+    background: url(../images/椭圆1拷贝2.png) no-repeat -2px 50%;
+    border-radius: 6px;
+}
+.software_item{
+    margin: 10px 0;
+}
+.software_item img{
+    width: 40px;
+    height: 40px;
+}
+.software_item div{
+    width: 80px;
+    margin-bottom: 5px;
+}
+/* 轮播图、广告 */
+.content{
+    margin-top: 20px;
+    overflow: hidden;
+}
+.lt_box{
+    width: 910px;
+    border-radius: 6px;
+}
+.rt_box{
+    width: 260px;
+    border-radius: 6px;
+}
+.rt_box .recommendation{
+    color: #2D50A1;
+}
+.slideshow{
+    position: relative;
+    background: #fff;
+}
+.slide{
+    width: 28px;
+    height: 40px;
+    background: #868487;
+    position: absolute;
+    top: 34%;
+    cursor: pointer;
+}
+.prev{
+    left: 0;
+}
+.next{
+    right: 0;
+}
+.notice{
+    width: 100%;
+    padding-left: 14px;
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    background: #868487;
+    border-radius: 0 0 6px 6px;
+}
+.dots{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.dots ul li{
+    height: 8px;
+    width: 8px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.dots ul li.active{
+    background: #FFCF07;
+}
+.rt_box_item{
+    height: 34px;
+    margin-top: 22px;
+}
+.rt_box_item img{
+    display: block;
+    width: 40px;
+    height: 100%;
+}
+.down_load{
+    width: 70px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    background: #FCC300;
+    vertical-align: top;
+    border-radius: 6px;
+    color: #fff
+}
+.explain{
+    color: #DADADA;
+}
+.content_right_item{
+    overflow: hidden;
+    margin-top: 20px;
+}
+.content_right_item img{
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-right: 5px;
+}
+.content_right_item .explain_box{
+    width: 108px;
+}
+.content_right_item .explain{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 软件分类 */
+.software_classify{
+    width: 260px;
+    padding: 14px 10px;
+}
+.center_content{
+    padding: 10px 30px 0;
+    width: 620px;
+}
+.sub_title{
+    overflow: hidden;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #F3F3F3;
+}
+.sub_title .lt{
+    color: #2D50A1;
+    font-size: 16px;
+}
+.sub_title .rt{
+    color: #B7B7B7;
+    cursor: pointer;
+}
+.software_classify_item div{
+    padding-left: 10px;
+    position: relative;
+}
+.software_classify_item p{
+    margin: 10px 0;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    border-left: 2px solid black;
+}
+.software_classify_item span{
+    color:#878787;
+    margin-right: 26px;
+    display: inline-block;
+    padding: 3px 0;
+    cursor: pointer;
+}
+.software_classify_item .more_btn{
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+/* 中间部分 */
+.software_notice{
+    border-bottom: 1px solid #F2F2F2;
+}
+.software_notice div{
+    width: 130px;
+}
+.software_notice img{
+    width: 66px;
+    height: 66px;
+}
+.software_notice p {
+    padding-bottom: 5px;
+    width: 44px;
+    margin: 5px auto 0;
+}
+.software_notice .active{
+    color: #FE1016;
+    border-bottom: 1px solid #FE1016;
+}
+.hot_notice{
+    padding: 20px 10px;
+}
+.headlines{
+    padding: 0 20px;
+}
+.headlines_title{
+    padding: 20px 0;
+}
+.headlines_title span{
+    color: #FD4655;
+    font-size: 24px;
+}
+.headlines_title i{
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    background: url(../images/组10.png) no-repeat;
+    vertical-align: top;
+}
+.headlines_content div{
+    margin: 10px 0;
+}
+.headlines_content div span{
+    display: inline-block;
+    font-size: 14px;
+}
+.discribe{
+    color: #8893E9;
+    width: 70px;
+    border-right: 1px solid #8893E9;
+    margin-right: 10px;
+}
+.software_name, .software_time{
+    color:#7F7F7F;
+}
+.notice_title{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #EFEFEF;
+}
+.hot_game div{
+    width: 126px;
+    height: 90px;
+}
+
+/* 今日推荐 */
+.toDay_news{
+    margin-top: 1px;
+}
+.toDay_news img, .toDay_news .lt, .toDay_news .rt{
+    cursor: pointer;
+}
+/* 最近更新 */
+.recent_updates{
+    padding: 20px 10px 20px 20px;
+}
+.recent_updates_item{
+    margin: 24px 0;
+    cursor: pointer;
+}
+.recent_updates_item img{
+    width: 40px;
+    height: 40px;
+}
+.recent_updates_item img, .software_down, .software_evaluate{
+    display: inline-block;
+}
+.software_down, .software_evaluate{
+    width: 164px;
+    vertical-align: top;
+    margin-left: 8px;
+}
+.software_down p, .software_evaluate p{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap; 
+}
+.software_down p:first-child{
+    margin-bottom: 5px;
+}
+.active .software_detail{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.recent_updates .active img{
+    width: 50px;
+    height: 50px;
+    vertical-align: bottom;
+}
+.now_down{
+    height: 30px;
+    width: 60px;
+    line-height: 30px;
+    text-align: center;
+    background: #FCC300;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.active .software_evaluate .software_size{
+    margin-bottom: 0;
+}
+.software_evaluate .details_box .lt{
+    margin-right: 14px;
+}
+
+/* 本周排行下载 */
+.download_item:hover{
+    padding-left: 10px;
+}
+.download_item:hover span{
+    color: #2D50A1;
+}
+.download_item img{
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.ranking{
+    width: 24px;
+    height: 30px;
+}
+.soft_icon{
+    width: 40px;
+    height: 40px;
+}
+.download_item {
+    margin: 12px 0px;
+    cursor: pointer;
+}
+.download_item span{
+    width: 114px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* <!-- 推荐下载 --> */
+.recommend_down{
+    overflow: hidden;
+}
+.recommend_down ul li{
+    margin-right: 24px;
+    float: left;
+    width: 66px;
+    height: 24px;
+    color: #878787;
+    line-height: 24px;
+    text-align: center;
+}
+.recommend_down ul li.active{
+    color: #2D50A1;
+    border-bottom: 1px solid;
+}
+.recommend_down span{
+    display: inline-block;
+    color: #878787;
+    cursor: pointer;
+    padding: 5px;
+}
+.recommend_down_icon, .software_box ul{
+    overflow: hidden;
+}
+.recommend_down_icon ul li{
+    width: 100px;
+    height: 92px;
+    text-align: center;
+    margin: 0 15px;
+    cursor: pointer;
+}
+.recommend_down_icon ul li p{
+    color: #878787;
+    padding: 4px;
+}
+
+.software_box{
+    padding: 0 30px 24px;
+}
+.software_box ul li{
+    width: 185px;
+    text-align: center;
+}
+.category_name{
+    height: 32px;
+    line-height: 32px;
+    background: #F0F0F0;
+    color: #2D50A1;
+}
+dd{
+    padding: 10px 10px 10px 24px;
+    text-align: left;
+    background: #fff;
+    border-left: 1px solid #DADADA;
+}
+dd{
+    border-bottom: 1px solid #DADADA;
+}
+dd img{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.last_dl{
+    border-right: 1px solid #DADADA;
+}
+
+/* 
+ *
+    软件下载页面
+ * 
+*/
+.down_box_{
+    position: relative;
+    padding: 18px 34px 10px;
+}
+.down_box_ div:not(:first-child){
+    margin-left: 28px;
+}
+.down_box_ img{
+    width: 56px;
+    height: 56px;
+}
+.content1::after{
+    clear: both;
+    content:"";
+    display:block;
+}
+.content1 .lt{
+    width: 230px;
+}
+.content1 .rt_box{
+    width: 920px;
+}
+.section_title li{
+    width: 66px;
+    text-align: center;
+    background: #F0F0F0;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+.section_title li:hover{
+    background: #FCC300;
+}
+.section_title .active{
+    background: #FCC300;
+}
+.inline_div{
+    display: inline-block;
+}
+.section_list li{
+    width: 100%;
+    margin: 10px 0;
+}
+.section_list b{
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 12px;
+}
+.section_list .down_btn{
+    color: #fff;
+    background: #5477C9;
+    padding: 10px 20px;
+    border-radius: 10px;
+    vertical-align: text-bottom;
+    cursor: pointer;
+}
+.model_icon{
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+.list_soft div{
+    width: 100%;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.list_soft div span:first-child{
+    border-left: 2px solid;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+.list_soft div:hover{
+    color: #fff;
+    background: #5378C9;
+}
+
+/* 热门软件推荐 */
+.hot_software{
+    padding: 20px 10px;
+}
+.hot_software div{
+    width: 66px;
+}
+.hot_software img{
+    width: 50px;
+    height: 50px;
+}
+
+/* 下载详情 */
+.position_title{
+    color: #878787;
+    font-size: 14px;
+}
+.content_details .rt_box{
+    width: 280px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+}
+.content_details .lt_box{
+    width: 880px;
+}
+.content_details{
+    overflow: hidden;
+}
+.about_recommend img, .about_recommend span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.about_recommend img{
+    width: 24px;
+    height: 24px;
+}
+.about_recommend span{
+    font-size: 14px;
+    width: 98px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.about_recommend_item:nth-child(2n+1){
+    margin-right: 3px;
+}
+.guide div{
+    width: 47%;
+    text-align: center;
+    background: #EFEFEF;
+    color: #A2A2A2;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.guide div:nth-child(2n+1){
+    margin-right: 10px;
+}
+
+.details_box_lt, .details_box_rt, .details_item p{
+    display: inline-block;
+}
+.details_box_lt{
+    width: 70%;
+}
+.details_box_rt{
+    width: 28%;
+}
+.details_item p:nth-child(2n+1){
+    width: 40%;
+}
+.details_item p:nth-child(2n){
+    width: 58%;
+}
+.details_box_rt div{
+    height: 54px;
+    width: 140px;
+    border-radius: 10px;
+    margin: 12px auto;
+    background-size: 100%;
+}
+.down_local_btn{
+    background: url(../images/组15.png) no-repeat;
+}
+.down_fast_btn{
+    background: url(../images/组16.png) no-repeat;
+}
+.details_item{
+    margin-top: 20px;
+}
+.details_box_lt h1{
+    color: #2D50A1;
+    margin-bottom: 10px;
+}
+
+/* 下载区域 */
+.down_area_lt, .down_area_rt{
+    width: 48%;
+    display: inline-block;
+}
+.down_area_lt p{
+    border-left: 3px solid #2D50A1;
+    padding-left: 10px;
+}
+.down_box .inline_box div{
+    width: 46%;
+    margin-top: 15px;
+}
+.down_box .inline_box div span{
+    width: 50%;
+    background: #FABD00;
+    padding: 8px 10px;
+    display: inline-block;
+    border-radius: 10px;
+    color: #fff;
+}
+.fast_down_item{
+    text-align: center;
+}
+.ordinary_down_item div{
+    padding-left: 10px;
+    color: #9C9C9C;
+}
+.down_area_rt div{
+    width: 70%;
+    height: 200px;
+    border: 1px solid;
+    margin: 0 auto;
+}
+
+/* 软件简介 */
+._title_{
+    border-bottom: 1px solid #5A98C9;
+}
+._title_ span{
+    display: inline-block;
+    background: #0C68B5;
+    color: #fff;
+    padding: 4px 24px;
+    letter-spacing: 1px;
+    border-radius: 6px 6px 0 0;
+}
+.software_introduction_box{
+    color: #9C9C9C;
+}
+.software_introduction p{
+    line-height: 22px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+.software_history_title{
+    border-left: 3px solid #0051B5;
+    padding-left: 10px;
+    height: 24px;
+    line-height: 24px;
+}
+.software_history_discribe p{
+    text-indent: 2em;
+}

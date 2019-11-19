@@ -1,0 +1,119 @@
+
+html,body,div,h1,h2,h3,h4,h5,h6,p,img,ul,li,input,span,a,i{
+    padding:0;
+    margin: 0
+}
+
+html{
+    font-family: "microsoft yahei", "HanHei SC","PingHei","PingFang SC","STHeitiSC-Light","Helvetica Neue","Helvetica","Arial",sans-serif
+}
+html,body{
+    padding: 0px;
+    margin: 0px;
+}
+*{
+    font-size: 0.26rem
+}
+body{
+    font-size: 0;
+    background: #f4f4f4
+}
+.clear{
+    zoom: 1;
+    content: "";
+    display: block;
+    clear: both
+  
+}
+ul>li{
+    list-style: none
+}
+input{
+    -webkit-appearance: none;
+}
+.title{
+    font-size: 0.36rem;
+    line-height: 0.88rem;
+}
+table,tr,td,th{
+    border-spacing:0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+/* 路由动画 */
+.slide-go-enter-active,.slide-go-leave-active,.slide-back-enter-active,.slide-back-leave-active{
+    transition: transform 0.4s cubic-bezier(0.55,0,0.1,1);
+}
+
+
+
+.slide-go-leave{
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+
+.slide-go-leave-to{
+    -webkit-transform: translate3d(-100%,0,0);
+  transform: translate3d(-100%,0,0);
+}
+  
+
+
+.slide-go-enter{
+    -webkit-transform: translate3d(100%,0,0);
+    transform: translate3d(100%,0,0);
+}
+
+
+.slide-go-enter-to{
+    -webkit-transform: translate3d(0%,0,0);
+  transform: translate3d(0%,0,0);
+}
+  
+
+.slide-back-leave{
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+
+.slide-back-leave-to{
+    -webkit-transform: translate3d(100%,0,0);
+    transform: translate3d(100%,0,0);
+}
+ 
+
+
+.slide-back-enter{
+    -webkit-transform: translate3d(-100%,0,0);
+    transform: translate3d(-100%,0,0);
+}
+
+
+.slide-back-enter-to{
+    -webkit-transform: translate3d(0%,0,0);
+    transform: translate3d(0%,0,0);
+}
+
+.leave{
+    transform: translateY(100%)
+}
+  
+.icon{
+    font-size: 0.48rem
+}
+.head{
+    text-align: center;
+    background: #008CE5;
+    line-height: 0.88rem;
+    position: relative;
+}
+.title{
+    font-size: 0.36rem;
+    color:#fff;
+}
+.float_right{
+    float: right;
+}

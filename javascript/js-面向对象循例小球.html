@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+
+<body>
+   <canvas id="can">当前浏览器不支持canvas</canvas>
+
+   <script>
+      //1.获取当前画布
+      const canvas = document.getElementById("can");
+      const ctx = canvas.getContext('2d');
+      canvas.width = 1000;
+      canvas.height = 600;
+      canvas.style.backgroundColor = "#000";
+      var getRandomColor = function () {
+         return "rgb(" + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255) + ',' + Math.round(
+            Math.random() * 10) + ')';
+      }
+      //2.小球类
+      class Ball {
+         constructor(x, y, color) {
+            this.x = x;
+            this.y = y;
+            this.color = color;
+            this.r = 40;
+         }
+
+         /**
+          * 绘制小球
+          */
+         render() {
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+            ctx.restore();
+         }
+      }
+
+      // 3.会移动的小球类
+      class MoveBall extends Ball {
+         constructor(x, y, color) {
+            super(x, y, color)
+
+            //量的变化
+            this.dx = Math.floor(Math.random() * (5 + 5) * -5);
+            this.dy = Math.floor(Math.random() * (5 + 5) * -5);
+            this.dr = Math.floor(Math.random() * (5 - 1) * 1);
+         }
+
+         update() {
+            this.x += this.dx;
+            this.y += this.dy;
+            this.r -= this.dr;
+            if (this.r < 0) {
+               this.r = 0
+            }
+         }
+      }
+
+      // 4.实例化小球你
+      let ballArr = [];
+
+      //5.监听鼠标的移动
+      canvas.addEventListener('mousemove', function (e) {
+         ballArr.push(new MoveBall(e.offsetX, e.offsetY, getRandomColor()))
+      })
+
+      // 6.开启定时器
+      setInterval(() => {
+         //清屏
+         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+         //绘制
+         for (let i = 0; i < ballArr.length; i++) {
+            ballArr[i].render();
+            ballArr[i].update();
+         }
+
+      }, 50);
+
+
+      // let ball = new Ball(50, 50, 'red')
+      // ball.render()
+   </script>
+</body>
+
+</html>

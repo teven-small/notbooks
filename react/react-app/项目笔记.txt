@@ -1,0 +1,120 @@
+	react-ant-design
+1. 安装和配置react-app-rewired、customize-cra
+npm i react-app-rewired customize-cra -S
+
+新建config-overriders.js
+    const { override } = require('customize-cra')
+    module.exports = override()
+
+2.安装less和自制主题
+npm i less less-loader -S
+
+报错：Inline JavaScript is not enabled. Is it set in your options?
+没有设置
+module.exports = override(
+   addLessLoader({
+      javascriptEnabled: true
+   })
+)
+3.安装antd和配置
+npm i antd -S
+npm i babel-plugin-import -S
+const { override, fixBabelImports } = require('customize-cra');
+module.exports = override(
+   fixBabelImports('import', {
+      libraryName: 'antd',
+      libraryDirectory: 'es',
+      style: 'css',
+   }),
+   addLessLoader({
+      javascriptEnabled: true,
+      modifyVars
+   }),
+);
+
+注意！注意！报错：Inline JavaScript is not enabled. Is it set in your options?
+没有设置
+module.exports = override(
+   addLessLoader({
+      javascriptEnabled: true
+   })
+)
+
+4.高阶组件配置
+npm i @babel/plugin-proposal-decorators -S
+
+5.安装配置路由
+npm i react-router-dom -S
+
+6.项目文件结构化
+
+7.路由懒加载
+npm i react-loadable -S
+
+配置：
+import Loadable from 'react-loadable'
+import { Loading } from '../components'
+
+const Dashboard = Loadable({
+   loader: () => import('./Dashboard'),
+   loading: Loading
+})
+
+//react-loadable的原理 实质是一个高阶组件
+import React, { Component } from 'react';
+
+const Loadable = ({
+   loader,
+   loading: Loading
+}) => {
+   return class LoadableComponent extends Component {
+      state = {
+         LoadedComponent: null
+      }
+
+      componentDidMount() {
+         // 实际是执行 import('./Dashboard')
+         loader().
+            then(res => {
+               this.setState({
+                  LoadedComponent: res.default
+               })
+            })
+      }
+
+      render() {
+         const { LoadedComponent } = this.state
+         return (
+            LoadedComponent
+               ?
+               <LoadedComponent />
+               :
+               <Loading />
+         );
+      }
+   }
+}
+
+export default Loadable;
+
+
+8.富文本框
+npm i wangeditor -S
+import React, { Component, createRef } from 'react';
+this.editorRef = createRef()
+ <div className="editor" ref={this.editorRef}></div>,
+this.editor = new E(this.editorRef.current)
+      console.log(this.editor.customConfig.onChange)
+
+      this.editor.customConfig.onchange = (html) => {
+         // html 即变化之后的内容
+
+         this.props.form.setFieldsValue({
+            content: html
+         })
+      }
+
+      this.editor.create()
+
+9.使用redux
+npm i redux react-redux redux-thunk -S

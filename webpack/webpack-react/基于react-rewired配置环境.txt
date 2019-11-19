@@ -1,0 +1,44 @@
+一.react-rewire 基本环境配置
+1. npm i react-app-rewired customize-cra -D
+新建config-overrides.js
+/*
+ * @file config-overrides.js
+ * @author Teven
+ * 基于customize和react-app-rewired的定制化配置文件
+*/
+
+//从customize-cra引入一些相关的方法
+const { override } = require('customize-cra')
+
+module.exports = override()
+
+2. npm i less less-loader -D
+module.exports = override(
+    addLessLoader({
+        javascriptEnabled: true
+    })
+)
+
+3. 安装 ant design
+npm i antd -S
+npm i babel-plugin-import -D
++ const { override, fixBabelImports } = require('customize-cra');
+
+- module.exports = function override(config, env) {
+-   // do stuff with the webpack config...
+-   return config;
+- };
++ module.exports = override(
++   fixBabelImports('import', {
++     libraryName: 'antd',
++     libraryDirectory: 'es',
++     style: 'css',
++   }),
++ );
+npm i @babel/plugin-proposal-decorators -D
+
+二、安装路由
+npm i react-router-dom -S
+
+路由懒加载
+npm i react-loadable -D

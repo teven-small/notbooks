@@ -1,0 +1,36 @@
+	vue-cli3的使用
+
+初始化生成packjson
+1.npm init -y
+
+2.npm add -D vue-cli  @2版本
+  npm add -D @vue/cli @3版本  不建议全局安装
+
+3.npx vue -V  查看版本
+
+4.创建项目：
+  vue init webpack project  @2版本
+  npx vue create project    @3版本
+
+Please pick a preset:(Use arrow keys)	选择一个预设，在create新建项目的时候生成的一个依赖配置项，你在项目中用到的配置项
+>default (bable, eslint)
+>Manually select feature   手动配置
+
+?Please pick a preset： Manually select feature
+?Check the features needed for your project:        选择你在项目中需要用到的配置
+Bable		选择
+TypeScript
+Progressive Web App (PWA) Support  PWA=>渐进式网页应用 多项技术app
+Router
+Vuex
+CSS Pre-processors   选择
+Linter / Formatter   选择
+Unit Testing
+E2E Testing   
+
+5.npx serve	启动运行项目
+
+
+packages 用来存放组件代码
+examples 示例应用
+lib      存放打包后的文件

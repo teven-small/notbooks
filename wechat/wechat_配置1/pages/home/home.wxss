@@ -1,0 +1,84 @@
+/* pages/home/home.wxss */
+view{
+  box-sizing: border-box;
+}
+.lt{
+  float: left;
+}
+.rt{
+  float: right;
+}
+.inline_view{
+  display: inline-block;
+}
+.search {
+  padding: 20rpx;
+}
+.swiper_img{
+  width: 100%;
+  height: 100%;
+}
+.search input{
+  padding-left: 40rpx;
+  height:60rpx;
+  background: rgb(245, 244, 244);
+  border-radius: 40rpx;
+  font-size: 14px;
+}
+.swiper_box{
+  height: 360rpx;
+}
+.la_ba{
+  margin-top: 30rpx;
+  padding:30rpx 40rpx;
+  background: rgba(202, 200, 200, .1);
+}
+.la_ba image{
+  margin-right: 30rpx;
+  width: 60rpx;
+  height:60rpx;
+  vertical-align: text-bottom;
+}
+.la_ba text{
+  color: rgb(29, 27, 27);
+}
+.menu_box{
+  padding: 30rpx  0 10rpx 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu_box view{
+  text-align: center;
+}
+.menu_name{
+  width: 20%;
+}
+.menu_img{
+  width: 40%;
+}
+.menu_price{
+  width: 40%;
+}
+.menu_box:not(:last-child){
+  border-bottom: 1px solid #ddd;
+}
+.menu_box image{
+  width: 210rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}
+.menu_name{
+  font-size: 28rpx;
+}
+.menu_price{
+  font-size: 24rpx;
+}
+.menu_price text{
+  margin-left: 10rpx;
+  color: red;
+  font-size: 50rpx;
+}
+.menu_price button{
+  margin-top: 20rpx;
+}

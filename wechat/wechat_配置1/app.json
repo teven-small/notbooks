@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/about/about",
+    "pages/order/order",
+    "pages/card/card"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "星星小店",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "imgs/order.png",
+        "selectedIconPath": "imgs/order_act.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "imgs/home.png",
+        "selectedIconPath": "imgs/home_act.png"
+      },
+      {
+        "pagePath": "pages/card/card",
+        "text": "购物车",
+        "iconPath": "imgs/car.png",
+        "selectedIconPath": "imgs/car_act.png"
+      },
+      {
+      "pagePath": "pages/about/about",
+      "text": "我的",
+      "iconPath": "imgs/we.png",
+      "selectedIconPath": "imgs/we_act.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

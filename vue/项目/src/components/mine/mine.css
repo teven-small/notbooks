@@ -1,0 +1,50 @@
+.log{
+    text-align: center;
+}
+.log-pic{
+    height: 0.48rem;
+    vertical-align: top;
+    margin-top: 0.8rem;
+}
+.company-name{
+    font-size: 0.28rem;
+    color: #666666;
+    text-align: center;
+    margin-top: 0.2rem;
+}
+.intro{
+    font-size: 0.26rem;
+    margin-top: 0.57rem;
+}
+.introduce-title{
+    color: #333333;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    padding: 0 0.4rem;
+}
+.introduce-content{
+    margin: 0 0.4rem;
+    padding:0 0 0.26rem;
+    color: #666666;
+    text-align: justify;
+}
+.company-information{
+    font-size: 0.3rem;
+    margin-top: 0.2rem;
+    background: #FFFFFF;
+    border-top: 0.02rem solid #D7D7D7;
+}
+.information{
+    height: 0.9rem;
+    line-height: 0.9rem;
+    margin: 0 0.4rem;
+    border-bottom: 0.02rem solid #D7D7D7;
+}
+.information .name{
+    display: inline-block;
+}
+.information .cont{
+    display: inline;
+    color: #333333;
+    float: right;
+}

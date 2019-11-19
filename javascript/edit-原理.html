@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>富文本编辑器原理</title>
+</head>
+
+<body>
+
+   <button onclick="boldStyle()">加粗</button>
+   <button onclick="italicStyle()">倾斜</button>
+   <button onclick="redFont()">字体变红</button>
+   <div contenteditable style="border: solid 1px red;min-height: 300px">
+      <img src="https://i0.hdslb.com/bfs/sycp/creative_img/201909/1296a70db4acc243766dadba65be857d.jpg" alt="">
+   </div>
+
+   <script>
+      var boldStyle = function () {
+         document.execCommand('Bold')
+      }
+      var italicStyle = function () {
+         document.execCommand('Italic')
+      }
+      var redFont = function () {
+         document.execCommand('foreColor', null, 'red')
+      }
+   </script>
+</body>
+
+</html>

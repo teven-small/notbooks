@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>redux原理</title>
+ </head>
+ <body>
+  <div>
+  	<button onclick="dispath({type: 'jian',n: 2})">-</button>
+  	<span id="countText">10</span>
+  	<button onclick="dispath({type: 'jia',n: 2})">+</button>
+  </div>
+
+  <script type="text/javascript">
+  	const countText = document.querySelector("#countText")
+  	const countState ={
+  		count: 5
+  	}
+  	renderCount = (state) =>{
+  		countText.innerHTML=state.count
+  	}
+  	renderCount(countState)
+
+  	// const jian = (n) =>{
+  	// 	countState.count = countState.count - n
+  	// 	renderCount(countState)
+  	// }
+
+  	const changeState = (action) => {
+
+  		switch(action.type){
+  			case 'jian':
+  				countState.count -= action.n
+  				break;
+			case 'jia':
+  				countState.count += action.n
+  				break;
+  			default:
+  			 	break
+  		}
+  	}
+
+  	const dispath = (action) => {
+  		changeState(action)
+  		renderCount(countState)
+  	}
+
+
+  </script>
+ </body>
+</html>

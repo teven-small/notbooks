@@ -1,0 +1,108 @@
+.login-logo{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+.bg{
+    width: 2rem;
+    height: 1.45rem;
+    background: url('../../assets/images/logo.png');
+    background-size: 100% 100%;
+    margin: 0 auto 0.24rem auto;
+    position: relative;
+    top: 1.3rem;
+}
+.com-name{
+    font-size: 0.3rem;
+    color: rgb(0,140,229);
+}
+.username{
+    width: 6.04rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    position: relative;
+    margin:1rem auto 0;
+}
+.positon{
+    color: #008CE5;
+    position: absolute;
+    left: 0.22rem;
+    z-index: 1;
+}
+.input-username{
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    font-size: 0.28rem;
+    width: 100%;
+    height: 100%;
+    border: 1px solid#D7D7D7;
+    border-radius: 0.2rem;
+    padding-left: 1rem;
+    vertical-align: top;
+}
+.password{
+    width: 6.04rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    position: relative;
+    margin: 0.56rem auto;
+}
+.serverset{
+    width: 6.04rem;
+    height: 0.8rem;
+    position: relative;
+    margin: 0.56rem auto 0;
+}
+.add{
+    width: 6.04rem;
+    height: 0.86rem;
+    background: #008CE5;
+    border:1px solid #008CE5;
+    border-radius: 0.1rem;
+    text-align: center;
+    line-height: 0.86rem;
+    font-size: 0.3rem;
+    color: #FFFFFF;   
+    margin: 0.64rem auto 0;
+}
+.fuwuset{
+    text-align: center;
+    margin-top: 0.52rem;
+}
+.fuset{
+    font-size: 0.28rem;
+    color: #008CE5;
+    text-decoration: underline;
+}
+.sure{
+    position: absolute;
+    left: 3.75rem;
+    top: 0rem;
+    width: 3.75rem;
+    font-size: 0.35rem;
+    color: #008CE5;
+    text-align: center;
+    border-radius: 0.3rem;
+    margin-top: 0.1rem;
+}
+.cancle{
+    width: 3.75rem;
+    font-size: 0.35rem;
+    color: #666;
+    text-align: center;
+    border-radius: 0.3rem;
+    margin-top: 0.1rem;
+}
+.mint-popup-bottom{
+    width: 100%
+}
+.server{
+    width: 0.36rem;
+    height: 0.37rem;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0.2rem;
+    background-image: url('../../assets/sever.png');
+    left:0.25rem;
+    background-size: 100%;
+}

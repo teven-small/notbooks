@@ -1,0 +1,10 @@
+body{
+   background-image: url('./assets/test1.jpg');
+   background-repeat: no-repeat;
+}
+::placeholder{
+   color: antiquewhite;
+}
+box{
+   display: flex;   
+}

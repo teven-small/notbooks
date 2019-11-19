@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3D轮播图</title>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="css/3D.css" />
+    <style>
+        .prev {
+            left: -44px;
+            background: url('img/left.png') no-repeat 0 50%
+        }
+
+        .next {
+            right: -41px;
+            background: url('img/right.png') no-repeat 100% 50%
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box-con"> <span class="prev"></span> <span class="next"></span>
+            <ul class="list">
+            </ul>
+        </div>
+    </div>
+    <canvas class="canvas"></canvas>
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <script src="js/3Ddata.js"></script>
+    <script src="js/3D.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="Generator" content="EditPlus®" />
+    <meta name="Author" content="" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <title>Document</title>
+   <!--  <script src="js/vue.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+    <div v-for="item in list">
+      <button>click</button>
+      <span>-</span>
+      <span>{{num}}</span>
+      <span @click="add">+</span>
+    </div>
+    </div>
+  </body>
+  <script>
+ 
+    var app = new Vue({
+      el: "#app",
+      data: {
+		num:0,
+		list: [
+            {
+              id: 0,
+             // imgUrl: require("../assets/images/水果.png"),
+              text: "这是水果1",
+              xqjs: "这是水果介绍",
+              price: 18,
+              cart_number: 0
+            },
+      {
+              id: 1,
+              //imgUrl: require("../assets/images/水果.png"),
+              text: "这是水果1",
+              xqjs: "这是水果介绍",
+              price: 18,
+              cart_number: 0
+            },
+      {
+              id: 2,
+             // imgUrl: require("../assets/images/水果.png"),
+              text: "这是水果1",
+              xqjs: "这是水果介绍",
+              price: 18,
+              cart_number: 0
+            },
+    ]
+    },
+    methods:{
+    add(){
+      this.num ++
+    }
+    }  
+    });
+  </script>
+</html>

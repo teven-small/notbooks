@@ -1,0 +1,59 @@
+<view class='content'>
+  <view class='item'>
+    <view class='top_title'>
+      <view class='lt'>
+        <text class='send b1'>配送</text>
+        <text class='freight'>￥172.00</text>
+        <text class='number'>(共2件)</text>
+      </view>
+      <view class='rt operation'>待确认</view>
+    </view>
+    <view class='info'>
+      <view class='inline_box'>
+        <image src='/imgs/jijiao.jpg'/>
+      </view>
+      <view class='inline_box'>
+        <view>凤娇鸡爪、豆腐脑.....</view>
+        <view>下单时间: 2019-05-26</view>
+      </view>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='top_title'>
+      <view class='lt'>
+        <text class='send b2'>配送</text>
+        <text class='freight'>￥172.00</text>
+        <text class='number'>(共2件)</text>
+      </view>
+      <view class='rt operation'>待确认</view>
+    </view>
+    <view class='info'>
+      <view class='inline_box'>
+        <image src='/imgs/jijiao.jpg'/>
+      </view>
+      <view class='inline_box'>
+        <view>凤娇鸡爪、豆腐脑.....</view>
+        <view>下单时间: 2019-05-26</view>
+      </view>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='top_title'>
+      <view class='lt'>
+        <text class='send b3'>配送</text>
+        <text class='freight'>￥172.00</text>
+        <text class='number'>(共2件)</text>
+      </view>
+      <view class='rt operation'>待确认</view>
+    </view>
+    <view class='info'>
+      <view class='inline_box'>
+        <image src='/imgs/jijiao.jpg'/>
+      </view>
+      <view class='inline_box'>
+        <view>凤娇鸡爪、豆腐脑.....</view>
+        <view>下单时间: 2019-05-26</view>
+      </view>
+    </view>
+  </view>
+</view>

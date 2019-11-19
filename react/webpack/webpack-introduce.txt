@@ -1,0 +1,184 @@
+    webpack配置
+1.初始化项目npm init
+2.安装webpack 
+  npm i webpack webpack-cli -D
+3.在package.json中配置
+    "scripts": {
+      //"build": "webpack --mode production or development", 
+      "build": "webpack --mode production --config scripts/webpack.config.js",      //指定运行一个文件
+    },
+4.在src新建个js文件
+5.新建一个webpack.config.js 向外暴露一个node配置，读取文件进行打包
+const path = require('path')
+module.exports = {
+   entry: {
+      index: './src/index.js',
+      home: './src/main.js'
+   },
+   output: {
+      path: path.resolve(process.cwd(), 'dist'),
+      //filename: '[name].js'			
+      filename: '[name].[chunkHash:8].js'	//加上hash [name].[chunkHash:8].js
+   }
+}
+6.打包html，要用到插件		//www.npmjs.com
+安装npm i --save-dev html-webpack-plugin
+安装后加：
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+ 
+module.exports = {
+  entry: 'index.js',
+  output: {
+    path: __dirname + '/dist',
+    filename: 'index_bundle.js'
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+	title: 'webpack',
+        template: 'src/index.html'
+    })
+  ]
+}
+7.打包css，
+安装：npm install --save-dev css-loader
+      npm install --save-dev style-loader
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+};
+打包提成独立css文件
+安装：npm install --save-dev mini-css-extract-plugin
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+module.exports = {
+  plugins: [
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // all options are optional
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+      ignoreOrder: false, // Enable to remove warnings about conflicting order
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [ MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+    ],
+  },
+ 
+ 8. 本地运行
+ 安装：npm install webpack-dev-server --save-dev
+ 在wackage.json中加
+ "scripts": {
+  "start:dev": "webpack-dev-server"
+}
+devServer: {
+      open: true,
+      port: 3000
+   }
+
+ 9.配置less文件
+ 安装：npm install less-loader less --save-dev
+ rules:[
+	{
+            test: /\.less$/i,
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'], //写法1
+	    use: [MiniCssExtractPlugin.loader, 'css-loader',
+		  loader: 'less-loader',
+		  options:{}
+	    ],								     //写法2
+
+         },
+ ]
+
+ 10.css样式前缀 如： placeholder
+ 安装：npm i postcss-loader autoprefixer -D
+ use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'，'postcss-loader']
+ 新建一个postcss.config.js文件
+ module.exports = {
+  plugins: [
+    require('autoprefixer')
+  ]
+}
+
+兼容性
+  在package.json中
+  原：
+     "browserslist": [
+        "last 1 version",
+        "> 1%",
+        "IE 10"
+      ]
+  优化后：
+     "browserslist": [
+        "cover 99.5%"
+      ]
+ 11. 处理image
+ npm install file-loader --save-dev  绝对路径
+
+ module: {
+    rules:[
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+              {
+                  loader: 'file-loader',
+                  options: {
+                      name: 'static/images/[name].[ext]',
+                      publicPath: '/'
+                  }
+              },
+          ],
+        },
+      ]
+  }
+
+  npm install url-loader --save-dev   相对路径
+  rules:[
+    {
+      test: /\.(png|jpe?g|gif)$/i,
+      use: [
+          {
+              loader: 'url-loader',
+              options: {
+                  limit: 8192,    //超出一个限制会使用file-lpader处理
+              },
+          },
+      ],
+    },
+
+  拷贝某些静态资源  copy-webpack-plugin
+  npm install copy-webpack-plugin --save-dev
+
+  const CopyPlugin = require('copy-webpack-plugin');
+  new CopyPlugin([
+    {
+	from: path.resolve(process.cwd(), 'src/static/'),
+	to: path.resolve(process.cwd(), 'dist/static')
+    },
+  ]),
+
+  12.安装 babel-loader
+  npm install -D babel-loader @babel/core @babel/preset-env
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+}

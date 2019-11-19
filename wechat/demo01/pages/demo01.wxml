@@ -1,0 +1,43 @@
+<!-- <view>
+<swiper autoplay indicator-dots indicator-active-color="green" indicator-color="#fff" interval="3000">
+  <swiper-item>
+    <image src='https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640'/>
+  </swiper-item>
+  <swiper-item>
+    <image src='https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640'/>
+  </swiper-item>
+  <swiper-item>
+  <image src='https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'/>
+  </swiper-item>
+</swiper>
+</view> -->
+
+<view class='hot_title'>本店推荐</view>
+<view class='item'>
+  <view>
+    <image src="../../img/1.jpg" />
+  </view>
+  <view>
+    <view class='name'>孜然小牛肉</view>
+    <view class='price'>价格：25￥</view>
+  </view>
+</view>
+<view class='item'>
+  <view>
+    <image src="../../img/2.jpg" />
+  </view>
+  <view>
+    <view class='name'>豆腐脑</view>
+    <view class='price'>价格：15￥</view>
+  </view>
+</view>
+<view class='item'>
+  <view>
+    <image src="../../img/3.jpg" />
+  </view>
+  <view>
+    <view class='name'>麻辣鸡脚</view>
+    <view class='price'>价格：25￥</view>
+  </view>
+</view>
+<view wx:for="{{news}}" wx:key="items">名字</view>

@@ -1,0 +1,62 @@
+view{
+  box-sizing: border-box;
+}
+.order_info{
+  padding: 0 30rpx;
+  background: #F8F8F8;
+}
+.order_info:not(:first-child){
+  margin-top: 60rpx;
+}
+.order_info image{
+  width: 180rpx;
+  height: 140rpx;
+  vertical-align: middle;
+  border-radius: 12rpx;
+}
+.inline_box{
+  width: 36%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.inline_box view{
+  font-size: 32rpx;
+  margin: 10rpx 0;
+}
+.inline_box text, .inline_box button, .inline_box input{
+  display: inline-block;
+  vertical-align: middle;
+}
+.inline_box text{
+  margin: 0 10rpx;
+}
+.inline_box input{
+  width: 70rpx;
+  text-align: center;
+}
+.inline_box button{
+  padding: 0;
+  width:80rpx;
+  height:60rpx;
+  line-height:60rpx;
+  text-align: center;
+}
+.sumite_box{
+  padding: 60rpx 0 20rpx 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sumite_box button{
+  width: 260rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-right: 46rpx;
+}
+.menu_info{
+  width: 36%;
+  padding-left: 34rpx;
+}
+.price, .subtotal, .count{
+  color: red;
+}
