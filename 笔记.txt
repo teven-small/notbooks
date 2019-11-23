@@ -1,0 +1,250 @@
+一、CSS
+    1.倒影
+	 -webkit-box-reflect: below 0 -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.4, transparent), to(rgba(0, 0, 0, 0.2)))
+
+    2.滚动条样式
+	::-webkit-scrollbar {
+   	      width: 6px;
+              height: 8px;
+	}
+	::-webkit-scrollbar-thumb {
+	     border-radius: 5px;
+    	     background: silver;
+	}
+		ie
+	scrollbar-arrow-color: #3b3b6e;             /**//*三角箭头的颜色*/   
+    	scrollbar-face-color: #212139;             /**//*立体滚动条的颜色*/   
+    	scrollbar-3dlight-color: #2a2a44;          /**//*立体滚动条亮边的颜色*/   
+    	scrollbar-highlight-color: #3b3b6e;        /**//*滚动条空白部分的颜色*/   
+    	scrollbar-shadow-color: #2a2a44;           /**//*立体滚动条阴影的颜色*/   
+    	scrollbar-darkshadow-color: #2a2a44;       /**//*立体滚动条强阴影的颜色*/   
+    	scrollbar-track-color: #2a2a44;            /**//*立体滚动条背景颜色*/   
+    	scrollbar-base-color:#2a2a44;               /**//*滚动条的基本颜色*/ 
+	
+二、监听滚动事件
+
+     window.addEventListener('scroll', handleScroll)
+
+      handleScroll () {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            console.log(scrollTop)
+        }
+
+
+三、vue.js
+
+    1.获取页面宽度、高度
+	document.documentElement.clientWidth
+	document.documentElement.clientHeight
+背景动画
+.bg1{
+    z-index: 0;
+    background: url(../imgs/midground1.gif);
+    animation: animatedBackground1 40s linear infinite;
+}
+.bg2{
+    z-index: 0;
+    background: url(../imgs/foreground.gif);
+    animation: animatedBackground 40s linear infinite;
+}
+.bg3{
+    z-index: 0;
+    background: url(../imgs/midground.gif);
+    background-size: 30%;
+    animation: animatedBackground 40s linear infinite;
+}
+@keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+  }
+  @keyframes animatedBackground1 {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+  }
+
+
+
+ //判断两个对象是否相等
+        isObjectValueEqual(a, b) {
+            if(typeof a == 'number' && typeof b == 'number'){
+                return a == b
+            }
+        
+            var aProps = Object.getOwnPropertyNames(a);
+            var bProps = Object.getOwnPropertyNames(b);
+        
+            if (aProps.length != bProps.length) {
+                return false;
+            }
+        
+            for (var i = 0; i < aProps.length; i++) {
+                var propName = aProps[i];
+                if(Object.prototype.toString(a[propName]) == '[Object Object]'||Object.prototype.toString(b[propName]) == '[Object Object]'){
+                    isObjectValueEqual(a[propName],b[propName])
+                }
+                if (a[propName] !== b[propName]) {
+                    return false;
+                }
+            }
+            return true;
+        },
+
+
+
+四、react.js
+
+1.运行npm init -y 快速初始化项目
+2.在项目根目录下创建src源代码目录和dist 产品目录
+3.在src目录下创建index.html
+4.使用cnpm 安装 webpack，运行 cnpm i webpack-cli -D
+  全局运行npm i cnpm -g
+5.注意：webpack 4.x 提供约定大于配置的概念，目的是为了尽量减少配置文件的体积
+  默认约定了：
+  打包的入口是 src -> index.js
+  打包的输出文件是 dist-> main.js
+  4.x中新增了mode选项，可选( 必选项 )的值为 development   production 	 	
+
+
+
+五、vue 自定义指令隐藏下拉框
+<input type="text" class="inputFn" placeholder="搜索相关文章" v-outSide="clickOutSide">
+
+methods:{
+	 // 点击空白处使topBar隐藏
+        clickOutSide() {
+            this.showList = false;
+        },
+}
+ directives: {
+         outSide: {
+            bind: function (el, binding, vnode) {
+                el.clickOutsideEvent = function (event) {
+                    // here I check that click was outside the el and his childrens
+                    if (!(el == event.target || el.contains(event.target))) {
+                        // and if it did, call method provided in attribute value
+                        vnode.context[binding.expression](event)
+                    }
+                }
+                document.body.addEventListener('click', el.clickOutsideEvent)
+            },
+            unbind: function (el) {
+                document.body.removeEventListener('click', el.clickOutsideEvent)
+            }
+        }
+    },
+
+
+六、canvas rect 填充图片
+
+var img = new Image()
+
+img.src =require('../assets/login.jpg') 
+
+var pat = ctx.createPattern(img, "no-repeat");
+
+ctx.fillStyle = pat;
+
+ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+
+
+
+<template slot-scope="scope">
+                                <el-select v-model="scope.row.parentId" placeholder="请选择" @change="((val)=>{selectChangeFn(val, scope.row)})">
+                                    <el-option v-for="item1 in categoryArr" :key="item1.tid" :label="item1.type" :value="item1.tid"></el-option>
+                                </el-select>
+                             </template>
+
+
+文字水印
+function watermark(settings) {
+			// debugger;
+			//默认设置
+			var defaultSettings = {
+				watermark_txt: "text",
+				watermark_x: 20,//水印起始位置x轴坐标
+				watermark_y: 20,//水印起始位置Y轴坐标
+				watermark_rows: 20,//水印行数
+				watermark_cols: 20,//水印列数
+				watermark_x_space: 100,//水印x轴间隔
+				watermark_y_space: 50,//水印y轴间隔
+				watermark_color: '#aaa',//水印字体颜色
+				watermark_alpha: 0.4,//水印透明度
+				watermark_fontsize: '15px',//水印字体大小
+				watermark_font: '微软雅黑',//水印字体
+				watermark_width: 210,//水印宽度
+				watermark_height: 80,//水印长度
+				watermark_angle: 15//水印倾斜度数
+			};
+			//采用配置项替换默认值，作用类似jquery.extend
+			if (arguments.length === 1 && typeof arguments[0] === "object") {
+				var src = arguments[0] || {};
+				for (key in src) {
+					if (src[key] && defaultSettings[key] && src[key] === defaultSettings[key])
+						continue;
+					else if (src[key])
+						defaultSettings[key] = src[key];
+				}
+			}
+
+			var oTemp = document.createDocumentFragment();
+
+			//获取页面最大宽度
+			var page_width = Math.max(document.body.scrollWidth, document.body.clientWidth);
+			var cutWidth = page_width * 0.0150;
+			var page_width = page_width - cutWidth;
+			//获取页面最大高度
+			var page_height = Math.max(document.body.scrollHeight, document.body.clientHeight) + 450;
+			// var page_height = document.body.scrollHeight+document.body.scrollTop;
+			//如果将水印列数设置为0，或水印列数设置过大，超过页面最大宽度，则重新计算水印列数和水印x轴间隔
+			if (defaultSettings.watermark_cols == 0 || (parseInt(defaultSettings.watermark_x + defaultSettings.watermark_width * defaultSettings.watermark_cols + defaultSettings.watermark_x_space * (defaultSettings.watermark_cols - 1)) > page_width)) {
+				defaultSettings.watermark_cols = parseInt((page_width - defaultSettings.watermark_x + defaultSettings.watermark_x_space) / (defaultSettings.watermark_width + defaultSettings.watermark_x_space));
+				defaultSettings.watermark_x_space = parseInt((page_width - defaultSettings.watermark_x - defaultSettings.watermark_width * defaultSettings.watermark_cols) / (defaultSettings.watermark_cols - 1));
+			}
+			//如果将水印行数设置为0，或水印行数设置过大，超过页面最大长度，则重新计算水印行数和水印y轴间隔
+			if (defaultSettings.watermark_rows == 0 || (parseInt(defaultSettings.watermark_y + defaultSettings.watermark_height * defaultSettings.watermark_rows + defaultSettings.watermark_y_space * (defaultSettings.watermark_rows - 1)) > page_height)) {
+				defaultSettings.watermark_rows = parseInt((defaultSettings.watermark_y_space + page_height - defaultSettings.watermark_y) / (defaultSettings.watermark_height + defaultSettings.watermark_y_space));
+				defaultSettings.watermark_y_space = parseInt(((page_height - defaultSettings.watermark_y) - defaultSettings.watermark_height * defaultSettings.watermark_rows) / (defaultSettings.watermark_rows - 1));
+			}
+			var x;
+			var y;
+			for (var i = 0; i < defaultSettings.watermark_rows; i++) {
+				y = defaultSettings.watermark_y + (defaultSettings.watermark_y_space + defaultSettings.watermark_height) * i;
+				for (var j = 0; j < defaultSettings.watermark_cols; j++) {
+					x = defaultSettings.watermark_x + (defaultSettings.watermark_width + defaultSettings.watermark_x_space) * j;
+
+					var mask_div = document.createElement('div');
+					mask_div.id = 'mask_div' + i + j;
+					mask_div.className = 'mask_div';
+					mask_div.appendChild(document.createTextNode(defaultSettings.watermark_txt));
+					//设置水印div倾斜显示
+					mask_div.style.webkitTransform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+					mask_div.style.MozTransform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+					mask_div.style.msTransform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+					mask_div.style.OTransform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+					mask_div.style.transform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+					mask_div.style.visibility = "";
+					mask_div.style.position = "absolute";
+					mask_div.style.left = x + 'px';
+					mask_div.style.top = y + 'px';
+					mask_div.style.overflow = "hidden";
+					mask_div.style.zIndex = "9999";
+					mask_div.style.pointerEvents = 'none';//pointer-events:none  让水印不遮挡页面的点击事件
+					//mask_div.style.border="solid #eee 1px";
+					mask_div.style.opacity = defaultSettings.watermark_alpha;
+					mask_div.style.fontSize = defaultSettings.watermark_fontsize;
+					mask_div.style.fontFamily = defaultSettings.watermark_font;
+					mask_div.style.color = defaultSettings.watermark_color;
+					mask_div.style.textAlign = "center";
+					mask_div.style.width = defaultSettings.watermark_width + 'px';
+					mask_div.style.height = defaultSettings.watermark_height + 'px';
+					mask_div.style.display = "block";
+					oTemp.appendChild(mask_div);
+				};
+			};
+			document.body.appendChild(oTemp);
+		}
+
+
+赋值一个对象
+1.es6 ...
+2.Object.assign({ },obj,{a:22,s:5})
