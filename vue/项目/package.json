@@ -14,7 +14,7 @@
     "echarts": "^4.1.0",
     "mint-ui": "^2.2.13",
     "moment": "^2.24.0",
-    "qs": "^6.6.0",
+    "qs": "^6.6.1",
     "vue": "^2.5.2",
     "vue-mobile-calendar": "^2.3.0",
     "vue-router": "^3.0.1",
